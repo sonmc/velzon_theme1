@@ -2,7 +2,7 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 
 //Tables
-import GridTables from "../pages/Tables/GridTables/GridTables";
+import GridTables from "../pages/Tables/GridTables";
 
 //login
 import Login from "../pages/Authentication/Login";
@@ -15,7 +15,7 @@ const authProtectedRoutes = [
   {
     path: "/",
     exact: true,
-    component: () => <Redirect to="/dashboard-analytics" />,
+    component: () => <Redirect to="/tables-gridjs" />,
   },
 ];
 

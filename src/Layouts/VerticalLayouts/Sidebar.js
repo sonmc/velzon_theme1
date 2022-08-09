@@ -8,12 +8,10 @@ import logoLight from "../../assets/images/logo-light.png";
 
 //Import Components
 import SidebarContent from "./SidebarContent";
-import TwoColumnLayout from "../TwoColumnLayout";
 import { Container } from "reactstrap";
 import HorizontalLayout from "../HorizontalLayout";
 
 const Sidebar = ({ layoutType }) => {
-
   useEffect(() => {
     var verticalOverlay = document.getElementsByClassName("vertical-overlay");
     if (verticalOverlay) {
@@ -25,12 +23,12 @@ const Sidebar = ({ layoutType }) => {
 
   const addEventListenerOnSmHoverMenu = () => {
     // add listener Sidebar Hover icon on change layout from setting
-    if (document.documentElement.getAttribute('data-sidebar-size') === 'sm-hover') {
-      document.documentElement.setAttribute('data-sidebar-size', 'sm-hover-active');
-    } else if (document.documentElement.getAttribute('data-sidebar-size') === 'sm-hover-active') {
-      document.documentElement.setAttribute('data-sidebar-size', 'sm-hover');
+    if (document.documentElement.getAttribute("data-sidebar-size") === "sm-hover") {
+      document.documentElement.setAttribute("data-sidebar-size", "sm-hover-active");
+    } else if (document.documentElement.getAttribute("data-sidebar-size") === "sm-hover-active") {
+      document.documentElement.setAttribute("data-sidebar-size", "sm-hover");
     } else {
-      document.documentElement.setAttribute('data-sidebar-size', 'sm-hover');
+      document.documentElement.setAttribute("data-sidebar-size", "sm-hover");
     }
   };
 
@@ -55,12 +53,7 @@ const Sidebar = ({ layoutType }) => {
               <img src={logoLight} alt="" height="17" />
             </span>
           </Link>
-          <button
-            onClick={addEventListenerOnSmHoverMenu}
-            type="button"
-            className="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
-            id="vertical-hover"
-          >
+          <button onClick={addEventListenerOnSmHoverMenu} type="button" className="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover" id="vertical-hover">
             <i className="ri-record-circle-line"></i>
           </button>
         </div>
@@ -73,8 +66,6 @@ const Sidebar = ({ layoutType }) => {
               </ul>
             </Container>
           </div>
-        ) : layoutType === 'twocolumn' ? (
-          <TwoColumnLayout />
         ) : (
           <SimpleBar id="scrollbar" className="h-100">
             <Container fluid>
