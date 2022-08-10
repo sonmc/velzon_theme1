@@ -6,7 +6,6 @@ import GridTables from "../pages/Tables/GridTables";
 
 //login
 import Login from "../pages/Authentication/Login";
-import Register from "../pages/Authentication/Register";
 
 const authProtectedRoutes = [
   //Tables
@@ -19,9 +18,6 @@ const authProtectedRoutes = [
   },
 ];
 
-const publicRoutes = [
-  { path: "/login", component: Login },
-  { path: "/register", component: Register },
-];
+const publicRoutes = [{ path: "/login", component: Login }];
 
 export { authProtectedRoutes, publicRoutes };
