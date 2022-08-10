@@ -22,7 +22,6 @@ const Sidebar = ({ layoutType }) => {
   });
 
   const addEventListenerOnSmHoverMenu = () => {
-    // add listener Sidebar Hover icon on change layout from setting
     if (document.documentElement.getAttribute("data-sidebar-size") === "sm-hover") {
       document.documentElement.setAttribute("data-sidebar-size", "sm-hover-active");
     } else if (document.documentElement.getAttribute("data-sidebar-size") === "sm-hover-active") {

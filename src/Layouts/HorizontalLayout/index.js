@@ -105,7 +105,6 @@ const HorizontalLayout = (props) => {
       {(menuItems || []).map((item, key) => {
         return (
           <React.Fragment key={key}>
-            {/* Main Header */}
             {!item["isHeader"] ? (
               item.subItems ? (
                 <li className="nav-item">
@@ -114,7 +113,6 @@ const HorizontalLayout = (props) => {
                   </Link>
                   <Collapse className="menu-dropdown" isOpen={item.stateVariables} id="sidebarApps">
                     <ul className="nav nav-sm flex-column test">
-                      {/* subItms  */}
                       {item.subItems &&
                         (item.subItems || []).map((subItem, key) => (
                           <React.Fragment key={key}>
@@ -127,12 +125,10 @@ const HorizontalLayout = (props) => {
                             ) : (
                               <li className="nav-item">
                                 <Link onClick={subItem.click} className="nav-link" to="/#" data-bs-toggle="collapse">
-                                  {" "}
                                   {props.t(subItem.label)}
                                 </Link>
                                 <Collapse className="menu-dropdown" isOpen={subItem.stateVariables} id="sidebarEcommerce">
                                   <ul className="nav nav-sm flex-column">
-                                    {/* child subItms  */}
                                     {subItem.childItems &&
                                       (subItem.childItems || []).map((subChildItem, key) => (
                                         <React.Fragment key={key}>
@@ -150,7 +146,6 @@ const HorizontalLayout = (props) => {
                                               </Link>
                                               <Collapse className="menu-dropdown" isOpen={subChildItem.stateVariables} id="sidebarEcommerce">
                                                 <ul className="nav nav-sm flex-column">
-                                                  {/* child subItms  */}
                                                   {subChildItem.childItems &&
                                                     (subChildItem.childItems || []).map((subSubChildItem, key) => (
                                                       <li className="nav-item apex" key={key}>

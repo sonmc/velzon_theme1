@@ -1,31 +1,11 @@
-import {
-  CHANGE_LAYOUT,
-  CHANGE_SIDEBAR_THEME,
-  CHANGE_LAYOUT_MODE,
-  CHANGE_LAYOUT_WIDTH,
-  CHANGE_LAYOUT_POSITION,
-  CHANGE_TOPBAR_THEME,
-  CHANGE_SIDEBAR_SIZE_TYPE,
-  CHANGE_SIDEBAR_VIEW,
-  RESET_VALUE
-} from './actionType';
+import { CHANGE_LAYOUT, CHANGE_SIDEBAR_THEME, CHANGE_LAYOUT_WIDTH, CHANGE_LAYOUT_POSITION, CHANGE_TOPBAR_THEME, CHANGE_SIDEBAR_SIZE_TYPE, CHANGE_SIDEBAR_VIEW, RESET_VALUE } from "./actionType";
 
 //constants
-import {
-  layoutTypes,
-  leftSidebarTypes,
-  layoutModeTypes,
-  layoutWidthTypes,
-  layoutPositionTypes,
-  topbarThemeTypes,
-  leftsidbarSizeTypes,
-  leftSidebarViewTypes
-} from "../../Components/constants/layout";
+import { layoutTypes, leftSidebarTypes, layoutWidthTypes, layoutPositionTypes, topbarThemeTypes, leftsidbarSizeTypes, leftSidebarViewTypes } from "../../Components/constants/layout";
 
 const INIT_STATE = {
   layoutType: layoutTypes.VERTICAL,
   leftSidebarType: leftSidebarTypes.DARK,
-  layoutModeType: layoutModeTypes.LIGHTMODE,
   layoutWidthType: layoutWidthTypes.FLUID,
   layoutPositionType: layoutPositionTypes.FIXED,
   topbarThemeType: topbarThemeTypes.LIGHT,
@@ -39,12 +19,6 @@ const Layout = (state = INIT_STATE, action) => {
       return {
         ...state,
         layoutType: action.payload,
-      };
-
-    case CHANGE_LAYOUT_MODE:
-      return {
-        ...state,
-        layoutModeType: action.payload,
       };
 
     case CHANGE_SIDEBAR_THEME:
@@ -83,8 +57,7 @@ const Layout = (state = INIT_STATE, action) => {
         leftSidebarViewType: action.payload,
       };
 
-
-      case RESET_VALUE:
+    case RESET_VALUE:
       return {
         ...state,
         resetValue: INIT_STATE,
