@@ -17,7 +17,7 @@ const SidebarContent = (props) => {
       const pathName = process.env.PUBLIC_URL + props.location.pathname;
       const ul = document.getElementById("navbar-nav");
       const items = ul.getElementsByTagName("a");
-      let itemsArray = [...items]; // converts NodeList to Array
+      let itemsArray = [...items];
       removeActivation(itemsArray);
       let matchingMenuItem = itemsArray.find((x) => {
         return x.pathname === pathName;
@@ -34,7 +34,6 @@ const SidebarContent = (props) => {
     let parentCollapseDiv = item.closest(".collapse.menu-dropdown");
 
     if (parentCollapseDiv) {
-      // to set aria expand true remaining
       parentCollapseDiv.classList.add("show");
       parentCollapseDiv.parentElement.children[0].classList.add("active");
       parentCollapseDiv.parentElement.children[0].setAttribute("aria-expanded", "true");
@@ -71,11 +70,9 @@ const SidebarContent = (props) => {
 
   return (
     <React.Fragment>
-      {/* menu Items */}
       {(navData || []).map((item, key) => {
         return (
           <React.Fragment key={key}>
-            {/* Main Header */}
             {item["isHeader"] ? (
               <li className="menu-title">
                 <span data-key="t-menu">{props.t(item.label)}</span>
