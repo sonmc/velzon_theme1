@@ -13,4 +13,4 @@ export const isUserAuthenticated = () => {
   return getLoggedInUser() !== null;
 };
 
-export const postJwtLogin = (data) => api.create(url.POST_FAKE_JWT_LOGIN, data);
+export const postJwtLogin = (data) => api.create(url.PUBLIC_URL, data);

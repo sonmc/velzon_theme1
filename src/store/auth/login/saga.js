@@ -4,11 +4,7 @@ import { call, put, takeEvery } from "redux-saga/effects";
 import { LOGIN_USER, LOGOUT_USER } from "./actionTypes";
 import { apiError, loginSuccess, logoutUserSuccess } from "./actions";
 
-//Include Both Helper File with needed methods
-import { getFirebaseBackend } from "../../../helpers/firebase_helper";
 import { postJwtLogin } from "../../../helpers/fakebackend_helper";
-
-const fireBaseBackend = getFirebaseBackend();
 
 function* loginUser({ payload: { user, history } }) {
   try {
@@ -18,7 +14,7 @@ function* loginUser({ payload: { user, history } }) {
     });
     localStorage.setItem("authUser", JSON.stringify(response));
     yield put(loginSuccess(response));
-    history.push("/dashboard");
+    history.push("/tables-gridjs");
   } catch (error) {
     yield put(apiError(error));
   }
@@ -27,12 +23,7 @@ function* loginUser({ payload: { user, history } }) {
 function* logoutUser() {
   try {
     localStorage.removeItem("authUser");
-    if (process.env.REACT_APP_DEFAULTAUTH === "fake") {
-      const response = yield call(fireBaseBackend.logout);
-      yield put(logoutUserSuccess(LOGOUT_USER, response));
-    } else {
-      yield put(logoutUserSuccess(LOGOUT_USER, true));
-    }
+    yield put(logoutUserSuccess(LOGOUT_USER, true));
   } catch (error) {
     yield put(apiError(LOGOUT_USER, error));
   }
