@@ -27,7 +27,7 @@ function* loginUser({ payload: { user, history } }) {
 function* logoutUser() {
   try {
     localStorage.removeItem("authUser");
-    if (process.env.REACT_APP_DEFAULTAUTH === "firebase") {
+    if (process.env.REACT_APP_DEFAULTAUTH === "fake") {
       const response = yield call(fireBaseBackend.logout);
       yield put(logoutUserSuccess(LOGOUT_USER, response));
     } else {
